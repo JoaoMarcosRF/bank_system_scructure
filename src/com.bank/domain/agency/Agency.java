@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Agency {
+public class Agency implements IAgency {
     private static int genId = 0;
 
     private final int id;
@@ -20,7 +20,7 @@ public class Agency {
     private Menager unitManeger;
 
 
-    private ArrayList<Employee> Employees = new ArrayList<>();
+    private ArrayList<Employee> employees = new ArrayList<>();
 
     private ArrayList<Costumer> costumers = new ArrayList<>();
     private double totalBalance;
@@ -40,16 +40,19 @@ public class Agency {
         this.address = address;
     }
 
-    public void addCostumers(Costumer costumer){
-        users.add(costumer);
-    }
+    public void addCostumer(Costumer costumer){costumers.add(costumer);}
+    public void removeCostumer(Costumer costumer) {costumers.remove(costumer);}
 
-    public void addEmployees(Employee employee){
-        Employees.add(employee);
-    }
+    public void addEmployee(Employee employee){employees.add(employee);}
+    public void removeEmployee(Employee employee) {employees.remove(employee);}
+
+    public void setUnitManeger(Menager menager) {unitManeger = menager;}
+    public void removeUnitMenager() {unitManeger = null;}
 
     @Override
     public String toString() {
         return "id: " + id + ",\nagencyName: " + agencyName + ",\naddress: " + address + "\ncreatAtFormated: " + creatAtFormated + "\nList of costumers: " + costumers;
     }
+
+
 }

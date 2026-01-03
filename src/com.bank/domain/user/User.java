@@ -67,4 +67,9 @@ public sealed abstract class User permits Costumer, Employee, Menager {
     public String toString() {
         return "userId: " + id + " userName: " + name + " cpf: " + cpf + " birthDate: " + birthDateFormated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return (o instanceof User other) &&  this.id == other.id;
+    }
 }

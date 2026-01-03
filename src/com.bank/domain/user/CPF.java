@@ -16,7 +16,7 @@ public final class CPF {
     @Override
     public String toString(){
         //111.111.111-1 1
-        //012 345 678 910
+        //012 345 678 9 10
         return (String)value.substring(0, 3) + "." + (String)value.substring(3, 6) + "." + (String)value.substring(6, 9) +  "-" + (String)value.substring(9, 11);
     }
 
