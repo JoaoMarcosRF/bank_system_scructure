@@ -1,5 +1,6 @@
 package com.bank.domain.user;
 
+import com.bank.domain.shared.User;
 import java.time.LocalDate;
 
 public non-sealed class Costumer extends User {
@@ -7,8 +8,9 @@ public non-sealed class Costumer extends User {
     private double totalBalance;
     private AccountType accountType;
 
-    public Costumer(Agency agency, String name, String cpf, String password, LocalDate birthDate, double totalBalance, AccountType accountType) {
-        super(agency, name, cpf, password, birthDate);
+    public Costumer(String name, String cpf, String password, LocalDate birthDate, double totalBalance, AccountType accountType) {
+        super(name, cpf, password, birthDate);
+        super.setAgency(null);
         this.totalBalance = totalBalance;
         this.accountType = accountType;
     }

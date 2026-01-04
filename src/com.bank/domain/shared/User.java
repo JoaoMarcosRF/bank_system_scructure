@@ -1,10 +1,15 @@
-package com.bank.domain.user;
+package com.bank.domain.shared;
+
+import com.bank.domain.user.*;
+import com.bank.domain.agency.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public sealed abstract class User permits Costumer, Employee, Menager {
+public sealed abstract class User
+        implements IUser
+        permits Costumer, Employee, Menager {
     private static int generateId = 0;
 
     private Agency agency;
@@ -15,11 +20,11 @@ public sealed abstract class User permits Costumer, Employee, Menager {
     private LocalDate birthDate;
     private String birthDateFormated;
 
-    User(Agency agency, String name, String cpf, String password, LocalDate birthDate) {
+    public User(String name, String cpf, String password, LocalDate birthDate) {
         generateId++;
 
         this.id = generateId;
-        this.agency = agency;
+        this.agency = null;
 
         this.name = name;
         this.cpf = new CPF(cpf);

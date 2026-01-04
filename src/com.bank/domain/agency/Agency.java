@@ -25,13 +25,13 @@ public class Agency implements IAgency {
     private ArrayList<Costumer> costumers = new ArrayList<>();
     private double totalBalance;
 
-    public Agency(Menager unitManager, String agencyName, String address) {
+    public Agency(String agencyName, String address) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         genId++;
         this.id = genId;
 
-        this.unitManeger = unitManager;
+        this.unitManeger = null;
 
         this.creatAt = LocalDateTime.now();
         creatAtFormated =  dtf.format(LocalDateTime.now());
@@ -40,10 +40,16 @@ public class Agency implements IAgency {
         this.address = address;
     }
 
+    @Override
     public void addCostumer(Costumer costumer){costumers.add(costumer);}
+
+    @Override
     public void removeCostumer(Costumer costumer) {costumers.remove(costumer);}
 
+    @Override
     public void addEmployee(Employee employee){employees.add(employee);}
+
+    @Override
     public void removeEmployee(Employee employee) {employees.remove(employee);}
 
     public void setUnitManeger(Menager menager) {unitManeger = menager;}

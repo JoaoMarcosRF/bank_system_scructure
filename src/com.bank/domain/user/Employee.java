@@ -1,5 +1,7 @@
 package com.bank.domain.user;
 
+import com.bank.domain.shared.Shift;
+import com.bank.domain.shared.User;
 import java.time.LocalDate;
 
 public non-sealed class Employee extends User {
@@ -8,8 +10,9 @@ public non-sealed class Employee extends User {
     private Role role;
     private Shift shift;
 
-    Employee(Agency agency, String name, String cpf, String password, LocalDate birthDate, double salary, Shift shift, Role role) {
-        super(agency, name, cpf, password, birthDate);
+    Employee(String name, String cpf, String password, LocalDate birthDate, double salary, Shift shift, Role role) {
+        super(name, cpf, password, birthDate);
+        super.setAgency(null);
         this.salary = salary;
         this.shift = shift;
         this.role = role;
