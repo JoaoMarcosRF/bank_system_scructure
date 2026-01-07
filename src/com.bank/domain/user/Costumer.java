@@ -1,24 +1,25 @@
 package com.bank.domain.user;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public non-sealed class Costumer extends User {
 
-    private double totalBalance;
+    private BigDecimal totalBalance;
     private AccountType accountType;
 
-    public Costumer(String name, String cpf, String password, LocalDate birthDate, double totalBalance, AccountType accountType) {
+    public Costumer(String name, String cpf, String password, LocalDate birthDate, BigDecimal totalBalance, AccountType accountType) {
         super(name, cpf, password, birthDate);
         super.setAgency(null);
         this.totalBalance = totalBalance;
         this.accountType = accountType;
     }
 
-    public double getTotalBalance() {
+    public BigDecimal getTotalBalance() {
         return totalBalance;
     }
 
-    public void setTotalBalance(double totalBalance) {
+    public void setTotalBalance(BigDecimal totalBalance) {
         this.totalBalance = totalBalance;
     }
 

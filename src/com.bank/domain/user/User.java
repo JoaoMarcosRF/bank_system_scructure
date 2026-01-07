@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 public sealed abstract class User
         implements IUser
         permits Costumer, Employee, Menager, Admin {
+
     private static int generateId = 0;
 
     private Agency agency;

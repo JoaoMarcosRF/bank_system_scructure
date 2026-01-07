@@ -4,6 +4,7 @@ import com.bank.domain.user.Costumer;
 import com.bank.domain.user.Employee;
 import com.bank.domain.user.Menager;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
@@ -22,10 +23,9 @@ public class Agency implements IAgency {
 
 
     private Set<Employee> employees = new HashSet<>();
-
     private Set<Costumer> costumers = new HashSet<>();
 
-    private double totalBalance;
+    private BigDecimal totalBalance;
 
     public Agency(String agencyName, String address) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");

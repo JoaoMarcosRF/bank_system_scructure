@@ -2,15 +2,16 @@ package com.bank.domain.user;
 
 import com.bank.domain.shared.Shift;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public non-sealed class Employee extends User {
 
-    private double salary;
+    private BigDecimal salary;
     private Role role;
     private Shift shift;
 
-    public Employee(String name, String cpf, String password, LocalDate birthDate, double salary, Shift shift, Role role) {
+    public Employee(String name, String cpf, String password, LocalDate birthDate, BigDecimal salary, Shift shift, Role role) {
         super(name, cpf, password, birthDate);
         super.setAgency(null);
         this.salary = salary;
@@ -34,11 +35,11 @@ public non-sealed class Employee extends User {
         this.shift = shift;
     }
 
-    public double getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 
