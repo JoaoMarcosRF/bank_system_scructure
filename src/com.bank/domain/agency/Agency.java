@@ -6,7 +6,8 @@ import com.bank.domain.user.Menager;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Agency implements IAgency {
     private static int genId = 0;
@@ -17,12 +18,13 @@ public class Agency implements IAgency {
     private LocalDateTime creatAt;
     private String creatAtFormated;
 
-    private Menager unitManeger;
+    private Menager unitMenager;
 
 
-    private ArrayList<Employee> employees = new ArrayList<>();
+    private Set<Employee> employees = new HashSet<>();
 
-    private ArrayList<Costumer> costumers = new ArrayList<>();
+    private Set<Costumer> costumers = new HashSet<>();
+
     private double totalBalance;
 
     public Agency(String agencyName, String address) {
@@ -31,7 +33,7 @@ public class Agency implements IAgency {
         genId++;
         this.id = genId;
 
-        this.unitManeger = null;
+        this.unitMenager = null;
 
         this.creatAt = LocalDateTime.now();
         creatAtFormated =  dtf.format(LocalDateTime.now());
@@ -52,8 +54,11 @@ public class Agency implements IAgency {
     @Override
     public void removeEmployee(Employee employee) {employees.remove(employee);}
 
-    public void setUnitManeger(Menager menager) {unitManeger = menager;}
-    public void removeUnitMenager() {unitManeger = null;}
+    @Override
+    public void setUnitMenager(Menager menager) {unitMenager = menager;}
+
+    @Override
+    public void removeUnitMenager() {unitMenager = null;}
 
     @Override
     public String toString() {

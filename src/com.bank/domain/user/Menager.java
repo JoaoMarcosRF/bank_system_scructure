@@ -1,7 +1,5 @@
 package com.bank.domain.user;
 
-import com.bank.domain.agency.Agency;
-import com.bank.domain.shared.User;
 import java.time.LocalDate;
 
 public non-sealed class  Menager extends User {

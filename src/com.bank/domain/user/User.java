@@ -1,6 +1,5 @@
-package com.bank.domain.shared;
+package com.bank.domain.user;
 
-import com.bank.domain.user.*;
 import com.bank.domain.agency.*;
 
 import java.time.LocalDate;
@@ -9,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 public sealed abstract class User
         implements IUser
-        permits Costumer, Employee, Menager {
+        permits Costumer, Employee, Menager, Admin {
     private static int generateId = 0;
 
     private Agency agency;
