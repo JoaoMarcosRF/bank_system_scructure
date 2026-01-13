@@ -1,5 +1,6 @@
 package com.bank.domain.user;
 
+import com.bank.domain.exception.InvalidCPFException;
 import com.bank.infrastructure.CPFValidator;
 
 public final class CPF {
@@ -8,7 +9,7 @@ public final class CPF {
 
     public CPF(String value){
         if (!CPFValidator.isValid(value)){
-            throw new IllegalArgumentException("com.bank.domain.user.CPF invalido");
+            throw new InvalidCPFException(value);
         }
         this.value = value;
     }
